@@ -1,0 +1,10 @@
+[Unit]
+Description=serverdash collector
+After=docker.service
+
+[Service]
+ExecStart=/usr/local/bin/serverdash-collector
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

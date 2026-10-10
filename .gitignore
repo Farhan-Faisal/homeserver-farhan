@@ -1,0 +1,35 @@
+# --- secrets: never commit these
+.env
+config.json
+*.key
+*.pem
+
+# --- data the apps create (each stack folder ignores its own too)
+immich/postgres/
+immich/library/
+jellyfin/config/
+jellyfin/cache/
+minecraft/data/
+
+# --- files the dashboard writes at runtime
+status.json
+history.json
+*.tmp
+
+# --- Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- big or generated files
+*.img
+*.zip
+*.tar.gz
+
+# --- editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

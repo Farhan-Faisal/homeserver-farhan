@@ -1,0 +1,27 @@
+# Modded Minecraft server (Forge) using the itzg/minecraft-server image.
+# Built for a CurseForge modpack whose server files are unpacked into ./data (see README.md).
+# All settings are in .env (copy .env.example).
+services:
+  minecraft:
+    image: itzg/minecraft-server:java17   # Minecraft 1.20.1 needs Java 17
+    container_name: ${CONTAINER_NAME}
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"                   # you accept Mojang's EULA: https://aka.ms/MinecraftEULA
+      TYPE: FORGE
+      VERSION: ${MC_VERSION}
+      FORGE_VERSION: ${FORGE_VERSION}
+      INIT_MEMORY: ${INIT_MEMORY}
+      MAX_MEMORY: ${MAX_MEMORY}
+      JVM_XX_OPTS: "-XX:G1PeriodicGCInterval=60000"   # give unused memory back to the system when idle
+      ALLOW_FLIGHT: "TRUE"           # modpacks with jetpacks or flying mounts kick players otherwise
+      WHITELIST: ${WHITELIST}        # only these players can join
+      OPS: ${OPS}                    # these players are admins
+      SEED: ${SEED}                  # empty = random world
+      TZ: ${TZ}
+    volumes:
+      - ./data:/data                 # the modpack, the world, logs and configs
+    mem_limit: ${MEM_LIMIT}          # hard cap so Minecraft can't starve your other apps
+    stop_grace_period: 90s           # time to save the world before Docker force-stops it
+    restart: unless-stopped
