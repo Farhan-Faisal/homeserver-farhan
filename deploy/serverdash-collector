@@ -1,6 +1,0 @@
-#!/bin/sh
-# Runs the serverdash package installed in /opt/serverdash/lib.
-#   serverdash-collector                 run forever (what the systemd service does)
-#   serverdash-collector --once          print one sample and exit
-#   serverdash-collector --test-notify   send a test push to your phone
-PYTHONPATH=/opt/serverdash/lib exec /usr/bin/python3 -m serverdash "$@"

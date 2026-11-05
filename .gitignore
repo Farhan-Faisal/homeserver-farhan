@@ -33,3 +33,13 @@ venv/
 .DS_Store
 Thumbs.db
 *.swp
+# --- the collector's database
+*.db
+*.db-wal
+*.db-shm
+
+# --- Samba placeholders for files deleted while open; they vanish on their own
+.smbdelete*
+
+# --- Node
+node_modules/

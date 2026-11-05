@@ -1,0 +1,17 @@
+[Unit]
+Description=serverdash API
+After=network-online.target serverdash-collector-next.service tailscaled.service
+Wants=network-online.target
+
+[Service]
+User=serverdash-api
+Group=serverdash-api
+WorkingDirectory=/opt/serverdash/api
+EnvironmentFile=/etc/serverdash/api.env
+ExecStart=/usr/bin/node src/server.ts
+Restart=always
+RestartSec=5
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

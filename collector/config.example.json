@@ -1,0 +1,28 @@
+{
+  "mount_labels": {
+    "/": "System (SSD)",
+    "/srv/data": "Data drive (HDD)",
+    "/srv/data/immich": "Immich (400 GB cap)"
+  },
+  "folders": [
+    "/srv/data/files",
+    "/srv/data/media/movies",
+    "/srv/data/media/tv",
+    "/srv/data/media/music",
+    "/srv/data/media/videos"
+  ],
+
+  "immich":   { "url": "http://127.0.0.1:2283", "api_key": "" },
+  "jellyfin": { "url": "http://127.0.0.1:8096", "api_key": "" },
+  "minecraft_container": "project-architect",
+  "app_ports": { "25565": "Minecraft" },
+
+  "page": {
+    "data_mount": "/srv/data",
+    "samba_share": "files",
+    "access": {
+      "immich": "You and family (Tailscale rule: port 2283)",
+      "samba": "Only you (Tailscale devices)"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "serverdash-api",
+  "version": "1.0.0",
+  "description": "Read-only REST API over the collector's SQLite database",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.ts",
+    "dev": "node --env-file-if-exists=.env --watch src/server.ts",
+    "check": "tsc",
+    "test": "node --env-file-if-exists=.env --test --test-concurrency=1 test/*.test.ts",
+    "test:changes": "RUN_CHANGES=1 node --env-file-if-exists=.env --test --test-concurrency=1 test/*.test.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "private": "true",
+  "type": "module",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  },
+  "allowScripts": {
+    "better-sqlite3@13.0.3": true
+  }
+}

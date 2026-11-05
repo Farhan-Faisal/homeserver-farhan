@@ -1,0 +1,5 @@
+#!/bin/sh
+# Runs the collector package installed in /opt/serverdash/lib.
+#   serverdash-collector                 run forever (what the systemd service does)
+#   serverdash-collector --once          print one sample and exit
+PYTHONPATH=/opt/serverdash/lib exec /usr/bin/python3 -m collector "$@"
