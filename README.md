@@ -35,6 +35,10 @@ Everything is reached over **Tailscale**, my private network. Nothing is open to
 
 ![Architecture diagram](docs/architecture.svg)
 
+## Media Automation 
+
+![Media Automation Stack Architecture diagram](docs/media-automation.svg)
+
 ## 🚧 Upcoming
 
 - **ntfy alerts**: push notifications to my phone when something goes wrong (overheating, a full drive, a service down).

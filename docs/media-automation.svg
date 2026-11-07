@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Media automation on server-fbf: a family member requests a title in Jellyseerr, Radarr or Sonarr search through Prowlarr and send the torrent to qBittorrent, the finished download is hardlinked into the media folder, Jellyfin streams it and Jellyseerr marks the request available.">
+  <style>
+    :root { --bg:#ffffff; --fg:#18181b; --muted:#71717a; --line:#a1a1aa; --box:#f4f4f5; --accent:#4f46e5; --store:#b45309; --storebg:#fffbeb; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0d1117; --fg:#e4e4e7; --muted:#a1a1aa; --line:#52525b; --box:#18181b; --accent:#818cf8; --store:#f59e0b; --storebg:#1c1408; }
+    }
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: var(--fg); }
+    .bg { fill: var(--bg); }
+    .title { font-size: 20px; font-weight: 700; }
+    .name { font-size: 15px; font-weight: 600; }
+    .sub { font-size: 12px; fill: var(--muted); }
+    .lbl { font-size: 12px; fill: var(--accent); font-weight: 600; }
+    .note { font-size: 12px; fill: var(--muted); }
+    .region { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 6 5; }
+    .regionlbl { font-size: 13px; font-weight: 600; fill: var(--muted); }
+    .box { fill: var(--box); stroke: var(--line); stroke-width: 1.2; }
+    .store { fill: var(--storebg); stroke: var(--store); stroke-width: 1.5; }
+    .folder { fill: var(--bg); stroke: var(--store); stroke-width: 1.2; }
+    .storelbl { font-size: 13px; font-weight: 600; fill: var(--store); }
+    .flow { fill: none; stroke: var(--accent); stroke-width: 2; }
+    .flow.soft { stroke-dasharray: 5 4; }
+    .head { fill: var(--accent); }
+    .icon { fill: none; stroke: var(--fg); stroke-width: 2; }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" class="head"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1200" height="800"/>
+  <text class="title" x="20" y="30">Media automation on server-fbf</text>
+
+  <g transform="translate(0,30)">
+    <!-- regions -->
+    <rect class="region" x="200" y="30" width="710" height="660" rx="14"/>
+    <text class="regionlbl" x="216" y="52">server-fbf · Docker containers</text>
+    <rect class="region" x="940" y="30" width="240" height="660" rx="14"/>
+    <text class="regionlbl" x="956" y="52">Internet</text>
+
+    <!-- family -->
+    <rect class="box" x="20" y="270" width="120" height="110" rx="12"/>
+    <circle class="icon" cx="80" cy="302" r="11"/>
+    <path class="icon" d="M60 340 a20 20 0 0 1 40 0"/>
+    <text class="name" x="80" y="362" text-anchor="middle">Family</text>
+    <text class="sub" x="80" y="400" text-anchor="middle">on Tailscale</text>
+
+    <!-- apps -->
+    <rect class="box" x="230" y="90" width="170" height="64" rx="10"/>
+    <text class="name" x="315" y="117" text-anchor="middle">Jellyseerr</text>
+    <text class="sub" x="315" y="137" text-anchor="middle">:5055 · requests</text>
+
+    <rect class="region" x="470" y="70" width="200" height="180" rx="12"/>
+    <text class="note" x="570" y="88" text-anchor="middle">manage the library</text>
+    <rect class="box" x="485" y="97" width="170" height="60" rx="10"/>
+    <text class="name" x="570" y="122" text-anchor="middle">Radarr</text>
+    <text class="sub" x="570" y="141" text-anchor="middle">:7878 · movies</text>
+    <rect class="box" x="485" y="177" width="170" height="60" rx="10"/>
+    <text class="name" x="570" y="202" text-anchor="middle">Sonarr</text>
+    <text class="sub" x="570" y="221" text-anchor="middle">:8989 · TV</text>
+
+    <rect class="box" x="735" y="80" width="150" height="60" rx="10"/>
+    <text class="name" x="810" y="105" text-anchor="middle">Prowlarr</text>
+    <text class="sub" x="810" y="124" text-anchor="middle">:9696 · indexers</text>
+    <rect class="box" x="735" y="180" width="150" height="56" rx="10"/>
+    <text class="name" x="810" y="203" text-anchor="middle">FlareSolverr</text>
+    <text class="sub" x="810" y="221" text-anchor="middle">:8191 · Docker only</text>
+
+    <rect class="box" x="735" y="300" width="150" height="64" rx="10"/>
+    <text class="name" x="810" y="327" text-anchor="middle">qBittorrent</text>
+    <text class="sub" x="810" y="347" text-anchor="middle">:8080 · downloads</text>
+
+    <rect class="box" x="230" y="470" width="170" height="64" rx="10"/>
+    <text class="name" x="315" y="497" text-anchor="middle">Jellyfin</text>
+    <text class="sub" x="315" y="517" text-anchor="middle">:8096 · streaming</text>
+
+    <!-- internet -->
+    <rect class="box" x="960" y="80" width="200" height="64" rx="10"/>
+    <text class="name" x="1060" y="107" text-anchor="middle">Torrent indexers</text>
+    <text class="sub" x="1060" y="127" text-anchor="middle">search result sites</text>
+    <rect class="box" x="960" y="300" width="200" height="64" rx="10"/>
+    <text class="name" x="1060" y="327" text-anchor="middle">BitTorrent peers</text>
+    <text class="sub" x="1060" y="347" text-anchor="middle">other people's computers</text>
+
+    <!-- storage -->
+    <rect class="store" x="440" y="420" width="445" height="240" rx="12"/>
+    <rect class="folder" x="460" y="455" width="160" height="140" rx="8"/>
+    <text class="name" x="540" y="485" text-anchor="middle">media/</text>
+    <text class="sub" x="540" y="510" text-anchor="middle">movies/  ·  tv/</text>
+    <text class="sub" x="540" y="575" text-anchor="middle">the library</text>
+    <rect class="folder" x="720" y="455" width="150" height="140" rx="8"/>
+    <text class="name" x="795" y="485" text-anchor="middle">torrents/</text>
+    <text class="sub" x="795" y="510" text-anchor="middle">movies/  ·  tv/</text>
+    <text class="sub" x="795" y="575" text-anchor="middle">downloads, seeding</text>
+    <text class="storelbl" x="460" y="636">Data drive (HDD) · /srv/data, mounted as /data in every container</text>
+
+    <!-- flows -->
+    <path class="flow" d="M140 300 H170 V122 H228" marker-end="url(#arrow)"/>
+    <text class="lbl" x="162" y="214" text-anchor="end">① request</text>
+
+    <path class="flow" d="M400 112 H483" marker-end="url(#arrow)"/>
+    <text class="lbl" x="441" y="104" text-anchor="middle">② movie</text>
+    <path class="flow" d="M400 138 H440 V207 H483" marker-end="url(#arrow)"/>
+    <text class="lbl" x="447" y="196">② show</text>
+    <text class="note" x="306" y="178" text-anchor="end">after your approval</text>
+
+    <path class="flow" d="M670 110 H733" marker-end="url(#arrow)"/>
+    <text class="lbl" x="702" y="102" text-anchor="middle">③ search</text>
+    <path class="flow" d="M885 110 H958" marker-end="url(#arrow)"/>
+    <text class="lbl" x="922" y="102" text-anchor="middle">queries</text>
+    <path class="flow" d="M810 140 V178" marker-end="url(#arrow)"/>
+    <text class="note" x="803" y="164" text-anchor="end">if blocked</text>
+    <path class="flow soft" d="M885 208 H922 V130 H958" marker-end="url(#arrow)"/>
+    <text class="note" x="950" y="200">solves</text>
+    <text class="note" x="950" y="215">Cloudflare checks</text>
+
+    <path class="flow" d="M600 250 V332 H733" marker-end="url(#arrow)"/>
+    <text class="lbl" x="612" y="324">④ send torrent</text>
+    <text class="note" x="592" y="300" text-anchor="end">category movies / tv</text>
+
+    <path class="flow" d="M887 332 H958" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <text class="lbl" x="922" y="320" text-anchor="middle">⑤ download</text>
+    <text class="note" x="922" y="354" text-anchor="middle">seed 1 day</text>
+
+    <path class="flow" d="M795 364 V453" marker-end="url(#arrow)"/>
+    <text class="note" x="803" y="410">writes</text>
+
+    <path class="flow" d="M720 525 H622" marker-end="url(#arrow)"/>
+    <text class="lbl" x="670" y="515" text-anchor="middle">⑥ import</text>
+    <text class="note" x="670" y="545" text-anchor="middle">hardlink,</text>
+    <text class="note" x="670" y="560" text-anchor="middle">no extra space</text>
+
+    <path class="flow" d="M460 502 H402" marker-end="url(#arrow)"/>
+    <text class="lbl" x="431" y="494" text-anchor="middle">⑦ scans</text>
+
+    <path class="flow soft" d="M315 470 V156" marker-end="url(#arrow)"/>
+    <text class="lbl" x="325" y="300">⑧ request marked</text>
+    <text class="lbl" x="325" y="316">"Available"</text>
+
+    <path class="flow" d="M230 502 H170 V360 H142" marker-end="url(#arrow)"/>
+    <text class="lbl" x="162" y="446" text-anchor="end">⑨ watch</text>
+  </g>
+
+  <text class="note" x="20" y="752">Sonarr, Radarr, Prowlarr, qBittorrent and Jellyseerr listen on the Tailscale address only; Jellyfin also on the home network.</text>
+  <text class="note" x="20" y="772">③ to ⑥ happen automatically. Radarr and Sonarr remove finished torrents from qBittorrent once seeding stops; the hardlinked copy in media/ stays.</text>
+</svg>
