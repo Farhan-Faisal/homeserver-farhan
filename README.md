@@ -1,6 +1,6 @@
-# 🏠 server-fbf
+# 🏠 homeserver-farhan
 
-My home server: an old Acer Nitro 5 laptop (i7-9750H, GTX 1050) running Ubuntu, serving photos, media, files and a Minecraft world to my family. I built it to refresh my Docker skills and to brush up on software engineering architecture: separate services, a REST API, a database, and a frontend that only talks to the API.
+My home server, `server-fbf`: an old Acer Nitro 5 laptop (i7-9750H, GTX 1050) running Ubuntu, serving photos, media, files and a Minecraft world to my family. I built it to refresh my Docker skills and to brush up on software engineering architecture: separate services, a REST API, a database, and a frontend that only talks to the API.
 
 ## 🧩 Services
 
@@ -26,6 +26,9 @@ serverdash shows the server's health and manages the family's accounts: temperat
 - **Frontend**: Next.js, React, TypeScript, Tailwind CSS and Recharts, exported as static files and served by nginx. [frontend/README.md](frontend/README.md)
 - **Backend**: a Node.js REST API with Express 5 and TypeScript. It reads the database and talks to Tailscale, Samba, Immich, Jellyfin and Jellyseerr. [backend/README.md](backend/README.md)
 - **Collector**: Python (standard library only). It measures the server every 10 seconds and saves everything to SQLite. [collector/README.md](collector/README.md)
+ 
+  ![General tab](docs/screenshots/general.png)
+  ![Tailscale tab](docs/screenshots/tailscale.png)
 
 ## 🔒 Security
 
