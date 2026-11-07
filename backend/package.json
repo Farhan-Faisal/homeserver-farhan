@@ -1,7 +1,7 @@
 {
   "name": "serverdash-api",
   "version": "1.0.0",
-  "description": "Read-only REST API over the collector's SQLite database",
+  "description": "REST API over the collector's SQLite database",
   "scripts": {
     "start": "node --env-file-if-exists=.env src/server.ts",
     "dev": "node --env-file-if-exists=.env --watch src/server.ts",

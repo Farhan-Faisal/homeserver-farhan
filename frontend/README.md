@@ -14,7 +14,6 @@ frontend/
 ├── postcss.config.mjs        # Tailwind
 ├── tsconfig.json
 ├── eslint.config.mjs
-├── public/
 └── src/
     ├── app/                  # one folder per tab; each page.tsx is that tab
     │   ├── layout.tsx        # fonts, navbar, page width
@@ -88,7 +87,7 @@ API_URL=http://127.0.0.1:8092 npm run dev
 
 ## Production
 
-The `serverdash` nginx container (`deploy/docker-compose.yml` and `deploy/nginx.conf`) serves `/opt/serverdash/www` on port 8090:
+The `serverdash` nginx container (`services/serverdash/docker-compose.yml` and `services/serverdash/nginx.conf`) serves `/opt/serverdash/www` on port 8090:
 - it maps `/people` to `people.html`, and so on for the other tabs
 - it forwards `/api/` to the API on `127.0.0.1:8091`
 - it caches `/_next/static/` files forever, since their names change with their content
