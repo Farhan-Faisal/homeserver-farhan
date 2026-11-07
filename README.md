@@ -33,7 +33,7 @@ serverdash shows the server's health and manages the family's accounts: temperat
 
 ## 🔒 Security
 
-Everything is reached over **Tailscale**, my private network. Nothing is open to the internet except the dashboard, and that goes through a **Cloudflare Tunnel** protected by **Cloudflare Access**: it only opens after logging in with my account. Within Tailscale, each family member only gets the services they've been given, through per-service groups in the Tailscale policy.
+Everything is reached over **Tailscale**, my private network. Nothing is open to the internet except the dashboard, and that goes through a **Cloudflare Tunnel** protected by **Cloudflare Access**: it only opens after logging in with my account. Within Tailscale, each family member only gets the services they've been given, through per-service groups in the Tailscale policy. The dashboard’s API has no login of its own yet; it relies on these two layers.
 
 ## 🗺️ Architecture
 
