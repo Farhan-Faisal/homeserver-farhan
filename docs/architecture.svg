@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 840" role="img" aria-label="server-fbf architecture: only the dashboard is reachable from the internet, through Cloudflare Access and a tunnel; everything else is reached over Tailscale, where per-service groups decide access. The dashboard is nginx serving a static Next.js frontend, an Express API reading SQLite, and a Python collector writing to it every 10 seconds. Apps run in Docker; photos, media and Samba files live on the HDD.">
+  <style>
+    :root { --bg:#ffffff; --fg:#18181b; --muted:#71717a; --line:#a1a1aa; --box:#f4f4f5; --ts:#4f46e5; --cf:#ea580c; --in:#52525b; --store:#b45309; --storebg:#fffbeb; }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg:#0d1117; --fg:#e4e4e7; --muted:#a1a1aa; --line:#52525b; --box:#18181b; --ts:#818cf8; --cf:#fb923c; --in:#a1a1aa; --store:#f59e0b; --storebg:#1c1408; }
+    }
+    text { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; fill: var(--fg); }
+    .bg { fill: var(--bg); }
+    .title { font-size: 20px; font-weight: 700; }
+    .name { font-size: 15px; font-weight: 600; }
+    .sub { font-size: 12px; fill: var(--muted); }
+    .note { font-size: 12px; fill: var(--muted); }
+    .region { fill: none; stroke: var(--line); stroke-width: 1.5; stroke-dasharray: 6 5; }
+    .regionlbl { font-size: 13px; font-weight: 600; fill: var(--muted); }
+    .box { fill: var(--box); stroke: var(--line); stroke-width: 1.2; }
+    .store { fill: var(--storebg); stroke: var(--store); stroke-width: 1.5; }
+    .storename { font-size: 15px; font-weight: 600; fill: var(--store); }
+    .ts { fill: none; stroke: var(--ts); stroke-width: 2; }
+    .cf { fill: none; stroke: var(--cf); stroke-width: 2; }
+    .in { fill: none; stroke: var(--in); stroke-width: 1.6; }
+    .dash { stroke-dasharray: 5 4; }
+    .lts { font-size: 12px; font-weight: 600; fill: var(--ts); }
+    .lcf { font-size: 12px; font-weight: 600; fill: var(--cf); }
+    .lin { font-size: 12px; fill: var(--in); }
+    .hts { fill: var(--ts); } .hcf { fill: var(--cf); } .hin { fill: var(--in); }
+    .icon { fill: none; stroke: var(--fg); stroke-width: 2; }
+  </style>
+  <defs>
+    <marker id="ats" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="hts"/></marker>
+    <marker id="acf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="hcf"/></marker>
+    <marker id="ain" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" class="hin"/></marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1280" height="840"/>
+  <text class="title" x="20" y="30">server-fbf architecture</text>
+
+  <g transform="translate(0,20)">
+    <!-- people -->
+    <rect class="box" x="20" y="110" width="150" height="80" rx="12"/>
+    <circle class="icon" cx="48" cy="140" r="9"/><path class="icon" d="M32 170 a16 16 0 0 1 32 0"/>
+    <text class="name" x="76" y="143">You</text>
+    <text class="sub" x="76" y="162">any browser</text>
+    <rect class="box" x="20" y="380" width="150" height="80" rx="12"/>
+    <circle class="icon" cx="48" cy="410" r="9"/><path class="icon" d="M32 440 a16 16 0 0 1 32 0"/>
+    <text class="name" x="76" y="413">Family</text>
+    <text class="sub" x="76" y="432">phones, laptops</text>
+
+    <!-- doors -->
+    <rect class="box" x="230" y="100" width="140" height="100" rx="12"/>
+    <text class="name" x="300" y="135" text-anchor="middle">Cloudflare</text>
+    <text class="sub" x="300" y="157" text-anchor="middle">Access login</text>
+    <text class="sub" x="300" y="174" text-anchor="middle">+ Tunnel</text>
+    <rect class="box" x="230" y="360" width="140" height="110" rx="12"/>
+    <text class="name" x="300" y="394" text-anchor="middle">Tailscale</text>
+    <text class="sub" x="300" y="416" text-anchor="middle">private network</text>
+    <text class="sub" x="300" y="433" text-anchor="middle">per-service groups</text>
+    <text class="sub" x="300" y="450" text-anchor="middle">decide access</text>
+
+    <!-- server -->
+    <rect class="region" x="400" y="40" width="860" height="710" rx="16"/>
+    <text class="regionlbl" x="416" y="62">server-fbf · Ubuntu · Acer Nitro 5 (i7-9750H, GTX 1050)</text>
+
+    <!-- web stack -->
+    <rect class="region" x="420" y="75" width="180" height="175" rx="12"/>
+    <text class="regionlbl" x="436" y="95">web stack</text>
+    <rect class="box" x="440" y="110" width="140" height="50" rx="10"/>
+    <text class="name" x="510" y="132" text-anchor="middle">cloudflared</text>
+    <text class="sub" x="510" y="150" text-anchor="middle">outbound tunnel</text>
+    <rect class="box" x="440" y="190" width="140" height="50" rx="10"/>
+    <text class="name" x="510" y="212" text-anchor="middle">web-nginx</text>
+    <text class="sub" x="510" y="230" text-anchor="middle">→ dashboard :8090</text>
+
+    <!-- dashboard -->
+    <rect class="region" x="620" y="75" width="620" height="175" rx="12"/>
+    <text class="regionlbl" x="636" y="95">serverdash · monitoring dashboard</text>
+    <rect class="box" x="640" y="110" width="150" height="60" rx="10"/>
+    <text class="name" x="715" y="134" text-anchor="middle">nginx :8090</text>
+    <text class="sub" x="715" y="153" text-anchor="middle">Next.js frontend</text>
+    <rect class="box" x="850" y="110" width="150" height="60" rx="10"/>
+    <text class="name" x="925" y="134" text-anchor="middle">API :8091</text>
+    <text class="sub" x="925" y="153" text-anchor="middle">Node · Express</text>
+    <rect class="box" x="1080" y="110" width="140" height="60" rx="10"/>
+    <text class="name" x="1150" y="134" text-anchor="middle">SQLite</text>
+    <text class="sub" x="1150" y="153" text-anchor="middle">history, alerts</text>
+    <rect class="box" x="1080" y="190" width="140" height="50" rx="10"/>
+    <text class="name" x="1150" y="212" text-anchor="middle">collector</text>
+    <text class="sub" x="1150" y="230" text-anchor="middle">Python</text>
+
+    <!-- services -->
+    <rect class="region" x="420" y="295" width="820" height="250" rx="12"/>
+    <text class="regionlbl" x="436" y="317">Services</text>
+    <text class="note" x="436" y="340">Docker</text>
+    <rect class="box" x="440" y="350" width="160" height="70" rx="10"/>
+    <text class="name" x="520" y="378" text-anchor="middle">Minecraft</text>
+    <text class="sub" x="520" y="398" text-anchor="middle">:25565 · Project Architect</text>
+    <rect class="box" x="620" y="350" width="160" height="70" rx="10"/>
+    <text class="name" x="700" y="378" text-anchor="middle">Immich</text>
+    <text class="sub" x="700" y="398" text-anchor="middle">:2283 · photos</text>
+    <rect class="box" x="800" y="350" width="160" height="70" rx="10"/>
+    <text class="name" x="880" y="378" text-anchor="middle">Jellyfin</text>
+    <text class="sub" x="880" y="398" text-anchor="middle">:8096 · streaming</text>
+    <rect class="box" x="980" y="350" width="240" height="70" rx="10"/>
+    <text class="name" x="1100" y="374" text-anchor="middle">Media automation</text>
+    <text class="sub" x="1100" y="392" text-anchor="middle">Jellyseerr :5055 · Sonarr · Radarr</text>
+    <text class="sub" x="1100" y="408" text-anchor="middle">Prowlarr · qBittorrent</text>
+    <text class="note" x="1100" y="440" text-anchor="middle">details: media-automation.svg</text>
+    <text class="note" x="436" y="462">On the host</text>
+    <rect class="box" x="440" y="470" width="160" height="60" rx="10"/>
+    <text class="name" x="520" y="494" text-anchor="middle">Samba</text>
+    <text class="sub" x="520" y="513" text-anchor="middle">:445 · file sharing</text>
+    <rect class="box" x="620" y="470" width="160" height="60" rx="10"/>
+    <text class="name" x="700" y="494" text-anchor="middle">SSH</text>
+    <text class="sub" x="700" y="513" text-anchor="middle">:22 · admin</text>
+
+    <!-- storage -->
+    <rect class="store" x="440" y="610" width="360" height="120" rx="12"/>
+    <text class="storename" x="460" y="640">SSD · 256 GB</text>
+    <text class="sub" x="460" y="668">Ubuntu, Docker images</text>
+    <text class="sub" x="460" y="690">~/stacks: app configs, Minecraft world</text>
+    <text class="sub" x="460" y="712">dashboard database (SQLite)</text>
+    <rect class="store" x="830" y="610" width="390" height="120" rx="12"/>
+    <text class="storename" x="850" y="640">HDD · 1 TB · /srv/data</text>
+    <text class="sub" x="850" y="668">files/ · Samba, a private folder each</text>
+    <text class="sub" x="850" y="690">media/, torrents/ · movies and TV</text>
+    <text class="sub" x="850" y="712">immich.img · 400 GB volume for photos</text>
+
+    <!-- public path (Cloudflare) -->
+    <path class="cf" d="M170 150 H228" marker-end="url(#acf)"/>
+    <text class="lcf" x="199" y="142" text-anchor="middle">login</text>
+    <text class="lcf" x="95" y="210" text-anchor="middle">dash.farhanlab.com</text>
+    <path class="cf" d="M370 135 H438" marker-end="url(#acf)"/>
+    <text class="lcf" x="396" y="127" text-anchor="middle">tunnel</text>
+    <path class="cf" d="M510 160 V188" marker-end="url(#acf)"/>
+    <path class="cf" d="M580 215 H610 V140 H638" marker-end="url(#acf)"/>
+
+    <!-- private path (Tailscale) -->
+    <path class="ts" d="M95 222 V330 H300 V358" marker-end="url(#ats)"/>
+    <text class="lts" x="103" y="320">or over Tailscale</text>
+    <path class="ts" d="M170 420 H228" marker-end="url(#ats)"/>
+    <path class="ts" d="M370 430 H418" marker-end="url(#ats)"/>
+    <text class="lts" x="394" y="452" text-anchor="middle">granted</text>
+    <path class="ts" d="M370 380 H390 V270 H700 V172" marker-end="url(#ats)"/>
+    <text class="lts" x="560" y="288" text-anchor="middle">owner only (allowed-networks)</text>
+
+    <!-- inside the server -->
+    <path class="in" d="M790 140 H848" marker-end="url(#ain)"/>
+    <text class="lin" x="819" y="132" text-anchor="middle">/api</text>
+    <path class="in" d="M1000 140 H1078" marker-end="url(#ain)"/>
+    <text class="lin" x="1039" y="132" text-anchor="middle">reads</text>
+    <path class="in" d="M1150 190 V172" marker-end="url(#ain)"/>
+    <text class="lin" x="1072" y="185" text-anchor="end">writes every 10 s</text>
+    <path class="in dash" d="M1150 240 V293" marker-end="url(#ain)"/>
+    <text class="lin" x="1158" y="275">measures</text>
+    <path class="in" d="M925 170 V293" marker-end="url(#ain)"/>
+    <text class="lin" x="933" y="265">creates accounts,</text>
+    <text class="lin" x="933" y="281">edits Tailscale policy</text>
+    <path class="in" d="M830 545 V608" marker-end="url(#ain)"/>
+    <text class="lin" x="838" y="582">store data</text>
+  </g>
+
+  <!-- legend + note -->
+  <path class="cf" d="M20 798 H50"/><text class="note" x="58" y="802">public: only the dashboard, through Cloudflare</text>
+  <path class="ts" d="M360 798 H390"/><text class="note" x="398" y="802">private: Tailscale</text>
+  <path class="in" d="M560 798 H590"/><text class="note" x="598" y="802">inside the server</text>
+  <text class="note" x="20" y="826">No ports are open to the internet: the tunnel connects out to Cloudflare. Within Tailscale, each person reaches only the services their groups grant.</text>
+</svg>
