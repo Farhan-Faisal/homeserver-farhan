@@ -1,0 +1,67 @@
+services:
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: Asia/Dhaka
+    volumes:
+      - ./sonarr:/config
+      - /srv/data:/data
+    ports:
+      - "100.113.90.61:8989:8989"
+    restart: unless-stopped
+
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    environment:
+      - LOG_LEVEL=info
+      - LOG_HTML=false
+      - CAPTCHA_SOLVER=none
+      - TZ=Asia/Dhaka
+    restart: unless-stopped
+
+  radarr:
+    image: lscr.io/linuxserver/radarr:latest
+    container_name: radarr
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: Asia/Dhaka
+    volumes:
+      - ./radarr:/config
+      - /srv/data:/data
+    ports:
+      - "100.113.90.61:7878:7878"
+    restart: unless-stopped
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: Asia/Dhaka
+    volumes:
+      - ./prowlarr:/config
+    ports:
+      - "100.113.90.61:9696:9696"
+    restart: unless-stopped
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:latest
+    container_name: qbittorrent
+    environment:
+      PUID: "1000"
+      PGID: "1000"
+      TZ: Asia/Dhaka
+      WEBUI_PORT: "8080"
+      TORRENTING_PORT: "6881"
+    volumes:
+      - ./qbittorrent:/config
+      - /srv/data:/data
+    ports:
+      - "100.113.90.61:8080:8080"
+    restart: unless-stopped

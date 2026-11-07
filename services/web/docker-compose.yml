@@ -1,0 +1,22 @@
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN}
+    networks: [web]
+    restart: unless-stopped
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: web-nginx
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d:ro
+      - ./sites:/srv/sites:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks: [web]
+    restart: unless-stopped
+networks:
+  web:
+    name: web

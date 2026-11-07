@@ -1,0 +1,23 @@
+services:
+  seerr:
+    image: ghcr.io/seerr-team/seerr:latest
+    container_name: seerr
+    init: true
+    environment:
+      - TZ=Asia/Dhaka
+    ports:
+      - "100.113.90.61:5055:5055"
+    volumes:
+      - ./config:/app/config
+    networks:
+      - automation
+      - jellyfin
+    restart: unless-stopped
+
+networks:
+  automation:
+    external: true
+    name: media-automation_default
+  jellyfin:
+    external: true
+    name: jellyfin_default

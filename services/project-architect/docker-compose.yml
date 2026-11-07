@@ -1,0 +1,27 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:java17
+    container_name: project-architect
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      SEED: "7437135210536028694"
+      TYPE: "FORGE"
+      VERSION: "1.20.1"
+      FORGE_VERSION: "47.4.8"
+      INIT_MEMORY: "4G"
+      MAX_MEMORY: "10G"
+      JVM_XX_OPTS: "-XX:G1PeriodicGCInterval=3600000"
+      TZ: "Asia/Dhaka"
+      ALLOW_FLIGHT: "TRUE"
+      ENABLE_WHITELIST: "TRUE"
+      WHITELIST: "DeadlyPants55"
+      OPS: "DeadlyPants55"
+    volumes:
+      - ./data:/data
+    mem_limit: 12g
+    stdin_open: true
+    tty: true
+    stop_grace_period: 90s
+    restart: unless-stopped
