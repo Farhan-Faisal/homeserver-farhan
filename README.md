@@ -15,6 +15,7 @@ My home server, `server-fbf`: an old Acer Nitro 5 laptop (i7-9750H, GTX 1050) ru
 - **Minecraft** (Project Architect modpack): port `25565`
 - **Samba**: file sharing with a private folder per person, port `445`
 - **serverdash**: the monitoring dashboard, port `8090`
+- **SSH**: admin access, port `22`
 - **Cloudflare Tunnel + nginx**: the only way in from the internet
 
 Every service runs in Docker except Samba, SSH and the dashboard's API and collector. Details, and how to set everything up on a fresh server: [services/README.md](services/README.md)
@@ -38,7 +39,7 @@ Everything is reached over **Tailscale**, my private network. Nothing is open to
 
 ![Architecture diagram](docs/architecture.svg)
 
-## Media Automation 
+## 🎬 Media automation
 
 ![Media Automation Stack Architecture diagram](docs/media-automation.svg)
 
